@@ -1,0 +1,5 @@
+SELECT author, title, price, amount, 
+      ROUND(( price * amount ) / (SELECT SUM(amount * price) FROM book) * 100, 2) AS income_percent
+FROM book
+ORDER BY income_percent DESC;
+/# главное понять задание
