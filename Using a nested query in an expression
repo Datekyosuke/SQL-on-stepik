@@ -1,0 +1,5 @@
+SELECT author, title, price
+FROM book
+WHERE (price - (SELECT MIN(price) FROM book)) <=150 AND (price - (SELECT MIN(price) FROM book)) >= 0
+ORDER BY price;
+/# И еще внимательно читаем условия задачи!. а то будем тупить 10 минут
