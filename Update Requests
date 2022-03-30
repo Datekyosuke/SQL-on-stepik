@@ -1,0 +1,6 @@
+UPDATE book
+SET price = price * 0.9
+WHERE amount BEtWEEN 5 AND 10;
+
+SELECT *FROM book;
+/# Все прошедщие темы только с добавлением записей
