@@ -1,0 +1,7 @@
+UPDATE book, supply 
+SET book.amount = book.amount + supply.amount,
+    book.price = (book.price + supply.price)/2
+WHERE book.title = supply.title AND book.author = supply.author;
+
+SELECT * FROM book;
+/# Главное понять как делать 2 изменения за раз). не 2 разных сета, а один но через запятую
