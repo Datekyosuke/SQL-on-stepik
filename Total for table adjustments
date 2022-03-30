@@ -1,0 +1,7 @@
+CREATE TABLE ordering AS
+SELECT author, title,((SELECT MAX(amount) FROM book) - amount) AS amount
+FROM book
+WHERE amount <(SELECT MAX(amount) FROM book);
+
+SELECT * FROM ordering;
+/# Норм, почти с первого раза
