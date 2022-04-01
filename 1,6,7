@@ -1,0 +1,5 @@
+SELECT MONTHNAME(date_first) AS "Месяц", count(MONTHNAME(date_first)) AS "Количество"
+FROM trip
+GROUP BY MONTHNAME(date_first)
+ORDER BY Количество DESC, Месяц;
+/# без подсказок
