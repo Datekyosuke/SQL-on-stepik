@@ -1,0 +1,10 @@
+UPDATE fine, payment
+SET fine.sum_fine = if(DATEDIFF(payment.date_payment, payment.date_violation)<=20, fine.sum_fine/2, fine.sum_fine),
+    fine.date_payment = payment.date_payment
+WHERE fine.date_payment IS NULL AND
+      fine.name = payment.name AND
+      fine.number_plate = payment.number_plate AND
+      fine.violation = payment.violation AND
+      fine.date_violation = payment.date_violation;
+SELECT * FROM fine;
+/# Глупые оштбки
