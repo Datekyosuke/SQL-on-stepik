@@ -1,0 +1,6 @@
+SELECT city.name_city, COUNT(city.city_id) AS Количество
+FROM city
+    INNER JOIN client ON city.city_id = client.city_id
+    RIGHT JOIN buy ON buy.client_id = client.client_id
+GROUP BY city.name_city
+ORDER BY Количество DESC, city.name_city;
