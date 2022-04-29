@@ -1,0 +1,10 @@
+SELECT genre.name_genre, SUM(buy_book.amount) AS Количество
+FROM genre INNER JOIN book USING(genre_id)
+           INNER JOIN buy_book USING(book_id)
+GROUP BY genre.name_genre
+HAVING SUM(buy_book.amount) in (SELECT MAX(Количество) 
+FROM (SELECT genre.name_genre, SUM(buy_book.amount) AS Количество
+FROM genre INNER JOIN book USING(genre_id)
+           INNER JOIN buy_book USING(book_id)
+GROUP BY genre.name_genre) querri_in);
+#НЕ знаю ка но оно заработало
