@@ -1,0 +1,4 @@
+SELECT buy_step.buy_id, date_step_end
+FROM buy_step
+INNER JOIN step USING(step_id)
+WHERE step.step_id = 1 AND buy_step.date_step_end IS NOT NULL;
