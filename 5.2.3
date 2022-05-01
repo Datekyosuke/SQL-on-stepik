@@ -1,0 +1,5 @@
+INSERT INTO buy_book (buy_id, book_id, amount)
+VALUES
+(5, (SELECT book_id FROM book WHERE title ='Лирика' AND (SELECT book_id FROM author WHERE name_author = 'Пастернак Б.Л.')), 2),
+(5, (SELECT book_id FROM book WHERE title ='Белая гвардия' AND (SELECT book_id FROM author WHERE name_author = 'Булгаков М.А.')), 1);
+SELECT * FROM buy_book;
