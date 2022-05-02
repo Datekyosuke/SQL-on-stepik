@@ -1,0 +1,12 @@
+SELECT name_student, name_subject, DATEDIFF(a.date_max, a.date_min) AS Интервал
+FROM (SELECT student.name_student, subject.name_subject, MAX(attempt.date_attempt) AS date_max, MIN(attempt.date_attempt) AS date_min
+      FROM attempt 
+      INNER JOIN student USING(student_id)
+      INNER JOIN subject USING(subject_id)
+  GROUP BY attempt.student_id, attempt.subject_id
+  HAVING COUNT(attempt.subject_id)>1) AS a
+  ORDER BY 3;
+
+
+
+
