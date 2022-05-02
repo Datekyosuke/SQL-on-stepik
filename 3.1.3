@@ -1,0 +1,4 @@
+SELECT name_student, result
+FROM attempt INNER JOIN student USING(student_id)
+WHERE result = (SELECT MAX(result) FROM attempt)
+ORDER BY 1;
