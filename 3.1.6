@@ -1,0 +1,5 @@
+SELECT name_question, name_answer, IF(is_correct, 'Верно', 'Неверно') AS Результат
+FROM testing
+INNER JOIN answer ON testing.answer_id = answer.answer_id
+INNER JOIN question ON question.question_id = testing.question_id
+WHERE testing.attempt_id = 7;
