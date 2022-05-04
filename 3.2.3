@@ -1,0 +1,8 @@
+INSERT testing (attempt_id, question_id)
+SELECT MAX(attempt_id), question_id
+FROM attempt RIGHT JOIN question USING(subject_id)
+WHERE attempt.result IS NULL
+GROUP BY question_id
+ORDER BY RAND()
+LIMIT 3;
+SELECT * FROM testing;
