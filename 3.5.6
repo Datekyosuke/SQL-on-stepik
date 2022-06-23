@@ -1,0 +1,6 @@
+SELECT name_enrollee, SUM(if(bonus IS NULL, 0, bonus)) as Бонус
+FROM enrollee
+LEFT JOIN enrollee_achievement USING(enrollee_id)
+LEFT JOIN achievement USING(achievement_id)
+GROUP BY name_enrollee
+ORDER BY 1;
