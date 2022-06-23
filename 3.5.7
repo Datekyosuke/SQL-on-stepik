@@ -1,0 +1,8 @@
+SELECT name_department, name_program, plan, Количество, ROUND(Количество/plan, 2) AS Конкурс
+FROM department
+    INNER JOIN program USING(department_id)
+    INNER JOIN 
+            (SELECT program_id, COUNT(enrollee_id) AS Количество
+            FROM  program_enrollee
+            GROUP BY program_id) AS temp USING(program_id)
+ORDER BY Конкурс DESC;
