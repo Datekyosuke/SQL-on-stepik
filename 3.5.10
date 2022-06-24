@@ -1,0 +1,5 @@
+SELECT LOWER(name_subject) AS предмет, MIN(result) AS минимум, MAX(result) AS максимум, ROUND(AVG(result), 0) AS среднее, COUNT(result) AS количество
+FROM subject
+INNER JOIN enrollee_subject USING(subject_id)
+GROUP BY name_subject
+ORDER BY 4 DESC;
