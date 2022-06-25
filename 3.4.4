@@ -1,0 +1,6 @@
+CREATE table applicant_order AS
+SELECT program_id, enrollee_id, itog
+FROM applicant
+ORDER BY 1, itog DESC;
+
+DROP TABLE applicant;
