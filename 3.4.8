@@ -1,0 +1,16 @@
+alter table applicant_order add column achievement varchar(50);
+update applicant_order
+inner join
+(
+    select enrollee_id, group_concat(distinct name_achievement separator ', ') as name_achievement
+    from enrollee
+    left join
+    (
+        select enrollee_id, name_achievement
+        from enrollee_achievement
+        inner join achievement using(achievement_id)
+    ) q using(enrollee_id)
+    group by enrollee_id
+) q1 using(enrollee_id)
+set achievement = coalesce(name_achievement, 'Достижений нет');
+select * from applicant_order;
