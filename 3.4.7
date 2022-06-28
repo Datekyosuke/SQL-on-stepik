@@ -1,0 +1,8 @@
+CREATE TABLE student
+SELECT name_program, name_enrollee, itog
+FROM enrollee 
+INNER JOIN applicant_order USING(enrollee_id)
+INNER JOIN program USING(program_id)
+WHERE str_id<=plan
+ORDER BY 1, 3 DESC;
+SELECT * FROM student;
